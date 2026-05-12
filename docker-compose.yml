@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: devops-pulse-frontend
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    networks:
+      - devops-net
+    environment:
+      - NODE_ENV=production
+
+  # Optional: Backend API (Node.js + Express)
+  backend:
+    image: node:18-alpine
+    container_name: devops-pulse-backend
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    ports:
+      - "4000:4000"
+    command: ["node", "server.js"]
+    environment:
+      - PORT=4000
+      - MONGODB_URI=mongodb://mongo:27017/devops_pulse
+      - JWT_SECRET=your_jwt_secret_here
+      - JENKINS_URL=http://jenkins:8080
+      - JENKINS_USER=admin
+      - JENKINS_TOKEN=your_jenkins_token
+      - AWS_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=your_access_key
+      - AWS_SECRET_ACCESS_KEY=your_secret_key
+    depends_on:
+      - mongo
+    networks:
+      - devops-net
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:6
+    container_name: devops-pulse-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - devops-net
+    restart: unless-stopped
+
+networks:
+  devops-net:
+    driver: bridge
+
+volumes:
+  mongo_data:

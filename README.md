@@ -1,122 +1,46 @@
-# ⚡ DevOps Pulse Dashboard
+# DevOps Pulse
 
-> Enterprise-grade CI/CD monitoring platform for Jenkins, Docker, AWS & microservices.
+DevOps Pulse is a cloud-native Multi-Pipeline CI/CD Dashboard that enables developers to monitor, trigger, and manage Jenkins pipelines in real time. It provides live build status, log streaming, and deployment tracking through an interactive web interface.
 
-![DevOps Pulse](https://img.shields.io/badge/DevOps-Pulse-00d4ff?style=for-the-badge)
-![React](https://img.shields.io/badge/React-18-61dafb?style=for-the-badge&logo=react)
-![Vite](https://img.shields.io/badge/Vite-5-646cff?style=for-the-badge&logo=vite)
+## Features
 
----
+* Real-time CI/CD pipeline monitoring
+* Jenkins pipeline integration
+* Live build logs with Socket.IO
+* Docker containerization
+* Kubernetes deployment
+* AWS cloud deployment
+* Secure authentication
 
-## 🚀 Quick Start
+## Tech Stack
 
-### Prerequisites
-- Node.js 18+
-- npm 9+
-- Docker & Docker Compose (for containerized deployment)
+* **Frontend:** React.js, Vite, Tailwind CSS
+* **Backend:** Node.js, Express.js, Socket.IO
+* **DevOps:** Jenkins, Docker, Kubernetes
+* **Cloud:** AWS EC2, Amazon EKS, Amazon ECR
 
-### Local Development
+## Installation
 
 ```bash
-# 1. Install dependencies
+git clone https://github.com/your-username/devops-pulse.git
+cd devops-pulse
+
+# Frontend
+cd frontend
 npm install
-
-# 2. Copy environment variables
-cp .env.example .env
-
-# 3. Start dev server
 npm run dev
+
+# Backend
+cd ../backend
+npm install
+npm start
 ```
 
-Visit: http://localhost:3000
+## Deployment
 
-**Demo credentials:** `admin@devops.io` / `admin123`
+* Docker
+* Kubernetes
+* AWS (EC2, EKS, ECR)
 
----
-
-## 🐳 Docker Deployment
-
-```bash
-# Build and start all services
-docker-compose up -d
-
-# View logs
-docker-compose logs -f frontend
-
-# Stop services
-docker-compose down
-```
-
----
-
-## 🏗️ Production Build
-
-```bash
-npm run build
-npm run preview
-```
-
----
-
-## 📁 Project Structure
-
-```
-devops-pulse/
-├── src/
-│   ├── App.jsx          # Main application (all pages & components)
-│   ├── main.jsx         # React entry point
-│   └── index.css        # Global styles
-├── index.html           # HTML template
-├── vite.config.js       # Vite configuration
-├── tailwind.config.js   # Tailwind CSS config
-├── postcss.config.js    # PostCSS config
-├── Dockerfile           # Multi-stage Docker build
-├── docker-compose.yml   # Full stack orchestration
-├── nginx.conf           # Nginx SPA config
-├── .env.example         # Environment template
-└── README.md
-```
-
----
-
-## 🧩 Features
-
-| Feature | Status |
-|---|---|
-| Login / Signup (JWT) | ✅ |
-| CI/CD Pipeline Monitoring | ✅ |
-| Pipeline Stage Visualization | ✅ |
-| Docker Container Management | ✅ |
-| AWS EC2 Monitoring | ✅ |
-| Microservices Health | ✅ |
-| Real-time Log Viewer | ✅ |
-| Analytics Charts (Recharts) | ✅ |
-| Notification System | ✅ |
-| Settings & Config | ✅ |
-| Collapsible Sidebar | ✅ |
-| Dark DevOps Theme | ✅ |
-| Framer Motion Animations | ✅ |
-| Responsive Layout | ✅ |
-
----
-
-## 🔧 Jenkins Integration
-
-1. Go to **Settings → Jenkins Configuration**
-2. Enter your Jenkins URL (e.g., `http://jenkins.internal:8080`)
-3. Generate an API token: **Jenkins → User → Configure → API Token**
-4. Paste token and username, click Save
-
----
-
-## ☁️ AWS Integration
-
-1. Create an IAM user with `ReadOnlyAccess` policy
-2. Go to **Settings → AWS Configuration**
-3. Enter Access Key ID, Secret, and Region
-
----
-
-## 📜 License
-
-MIT © DevOps Pulse
+## Author
+Rupesh Kumar Raj
